@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShrustiParmar:JavaScript-Scientific Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- <h2>Scientific Calculator</h2> -->
+    <div class="table-container">
+      <table>
+        <tr class="row1">
+          <th colspan="5">
+            <div class="output-container" placeholder="0">
+              <div class="operation" id="operation-div">
+              </div>
+              <!-- <div class="result" id="result-div"></div> -->
+              <!-- <input type="text" placeholder="0" > -->
+            </div>
+          </th>
+        </tr>
+        <tr class="row2">
+          <td>DEG</td>
+          <td>F-E</td>
+        </tr>
+        <tr class="row3">
+          <td onclick="memoryClear()" class="off-MC-MR" id="memory-clear">
+            MC
+          </td>
+          <td onclick="memoryRecall()" class="off-MC-MR" id="memory-recall">
+            MR
+          </td>
+          <td onclick="memoryPlus()" id="btn1">M+</td>
+          <td onclick="memoryMinus()" id="btn1">M-</td>
+          <td onclick="memorySave()" id="btn1">MS</td>
+        </tr>
+        <tr class="row4">
+          <td colspan="2" class="dropdown">
+            <div class="trigonometry dropdown-btn">
+              <img src="imgs/trigonometry-90.png" alt="" />&nbsp;&nbsp;
+              <span>Trigonometry</span>&nbsp;
+              <i class="material-icons">expand_more</i>
+            </div>
+            <div class="dropdown-content" id="dropdown-content">
+              <div data-value="sine" onclick="trigonometry('sine')">sin</div>
+              <div data-value="cos" onclick="trigonometry('cos')">cos</div>
+              <div data-value="sec" onclick="trigonometry('sec')">sec</div>
+              <div data-value="cosec" onclick="trigonometry('cosec')">cosec</div>
+              <div data-value="tan" onclick="trigonometry('tan')">tan</div>
+              <div data-value="cot" onclick="trigonometry('cot')">cot</div>
+            </div>
+          </td>
+          <td colspan="2">
+            <div class="function">
+              <span class="span1">&#10765;</span>&nbsp;&nbsp;
+              <span class="span2">Function</span>&nbsp;
+              <i class="material-icons">expand_more</i>
+            </div>
+          </td>
+        </tr>
+        <tr class="row5">
+          <td>2<sup>nd</sup></td>
+          <td data-value="3.14" onclick="addChar(this)">
+            <span title="PI">&#960;</span>
+          </td>
+          <td data-value="2.71828" onclick="addChar(this)">
+            <span title="e">&#8495;</span>
+          </td>
+          <td data-value="clear" onclick="clearScreen()">
+            <span>C</span>
+          </td>
+          <td data-value="backspace" onclick="backspace()">
+            <i class="material-icons" id="backspace">backspace</i>
+          </td>
+        </tr>
+        <tr class="row6">
+          <td data-value="^2" onclick="calc_square()">
+            <span>x<sup>2</sup></span>
+          </td>
+          <td data-value="1/" onclick="addChar(this)">
+            <span>1/x</span>
+          </td>
+          <td data-value="" onclick="calc_absolute()">
+            <span>| x |</span>
+          </td>
+          <td onclick="calc_exp()">exp</td>
+          <td>mod</td>
+        </tr>
+        <tr class="row7">
+          <td data-value="√" onclick="calc_sqrt()">
+            <sup>2</sup>√x
+            <!-- <span title="square_root">&#8730;x</span> -->
+          </td>
+          <td data-value="(" onclick="addChar(this)">
+            <span>(</span>
+          </td>
+          <td data-value=")" onclick="addChar(this)">
+            <span>)</span>
+          </td>
+          <td data-value="!" onclick="calc_factorial()">
+            <span>n!</span>
+          </td>
+          <td data-value="/" onclick="addChar(this)">
+            <span class="division" title="division">&#247;</span>
+          </td>
+        </tr>
+        <tr class="row8">
+          <td data-value="^" onclick="addChar(this)">
+            <span>x<sup>y</sup></span>
+          </td>
+          <td data-value="7" onclick="addChar(this)">
+            <span class="white">7</span>
+          </td>
+          <td data-value="8" onclick="addChar(this)">
+            <span>8</span>
+          </td>
+          <td data-value="9" onclick="addChar(this)">
+            <span>9</span>
+          </td>
+          <td data-value="*" onclick="addChar(this)">
+            <span title="multiplication">&#10799;</span>
+          </td>
+        </tr>
+        <tr class="row9">
+          <td data-value="10^" onclick="calc_ten_pow()">
+            <span>10<sup>x</sup></span>
+          </td>
+          <td data-value="4" onclick="addChar(this)">
+            <span>4</span>
+          </td>
+          <td data-value="5" onclick="addChar(this)">
+            <span>5</span>
+          </td>
+          <td data-value="6" onclick="addChar(this)">
+            <span>6</span>
+          </td>
+          <td data-value="-" onclick="addChar(this)">
+            <span class="minus" title="minus">&#8722;</span>
+          </td>
+        </tr>
+        <tr class="row10">
+          <td data-value="log" onclick="calc_log()">
+            <span>log</span>
+          </td>
+          <td data-value="1" onclick="addChar(this)">
+            <span>1</span>
+          </td>
+          <td data-value="2" onclick="addChar(this)">
+            <span>2</span>
+          </td>
+          <td data-value="3" onclick="addChar(this)">
+            <span>3</span>
+          </td>
+          <td data-value="+" onclick="addChar(this)">
+            <span class="plus" title="plus">&#43;</span>
+          </td>
+        </tr>
+        <tr class="row11">
+          <td data-value="ln" onclick="calc_ln()">
+            <span>ln</span>
+          </td>
+          <td data-value="&#177;" onclick="addChar(this)">
+            <sup>+</sup>/<sub>-</sub>
+            <!-- <span title="plusOrMinus">&#177;</span> -->
+          </td>
+          <td data-value="0" onclick="addChar(this)">
+            <span>0</span>
+          </td>
+          <td data-value="." onclick="addChar(this)">
+            <span>.</span>
+          </td>
+          <!-- <div class="bg-equal"> -->
+          <td data-value="=" onclick="calculate()" class="equal" bgcolor="#F1F3F6">
+            <!-- <div id="equal" class="button">=</div> -->
+            <span class="equal">=</span>
+          </td>
+        <!-- </div> -->
+        </tr>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
