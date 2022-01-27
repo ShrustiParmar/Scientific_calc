@@ -102,10 +102,6 @@ let mStatus = 0;
 
 var memoryRegister = [];
 function memoryClear(){
-    // memoryArr = [];
-    // if(mStatus == 1){
-    //     document.getElementById('memory-clear').style.opacity = 0.2;
-    // }
     memoryRegister = [];
 }
 
@@ -122,9 +118,6 @@ function memoryPlus(){
         memoryArr.push(operationDiv.innerText);
     }
     if(mStatus == 0 && operationDiv.innerText != ""){
-        // document.getElementById('memory-clear').style.opacity = 1;
-        // document.getElementById('memory-recall').style.opacity = 1;
-        // mStatus = 1;
         memoryRegister.push();
     }
     operationDiv.innerText = ""; 
@@ -135,9 +128,6 @@ function memoryMinus(){
         memoryArr.push('-'+operationDiv.innerText);
     }
     if(mStatus == 0 && operationDiv.innerText != ""){
-        // document.getElementById('memory-clear').style.opacity = 1;
-        // document.getElementById('memory-recall').style.opacity = 1;
-        // mStatus = 1;
         memoryRegister.pop();
     }
     operationDiv.innerText = "";
@@ -148,9 +138,6 @@ function memorySave(){
         memoryArr.push(operationDiv.innerText);
     }
     if(mStatus == 0 && operationDiv.innerText != ""){
-        // document.getElementById('memory-clear').style.opacity = 1;
-        // document.getElementById('memory-recall').style.opacity = 1;
-        // mStatus = 1;
         memoryRegister = [];
     }
     operationDiv.innerText = "";
